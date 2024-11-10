@@ -140,7 +140,7 @@ const WidgetsDropdown = (props) => {
               </span>
             </>
           }
-          title="Income"
+          title="Reward"
           action={
             <CDropdown alignment="end">
               <CDropdownToggle color="transparent" caret={false} className="text-white p-0">
@@ -229,7 +229,7 @@ const WidgetsDropdown = (props) => {
               </span>
             </>
           }
-          title="Conversion Rate"
+          title="SOL Conversion Rate"
           action={
             <CDropdown alignment="end">
               <CDropdownToggle color="transparent" caret={false} className="text-white p-0">
