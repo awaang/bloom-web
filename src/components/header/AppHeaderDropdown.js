@@ -16,6 +16,7 @@ import {
   cilEnvelopeOpen,
   cilFile,
   cilLockLocked,
+  cilAccountLogout,
   cilSettings,
   cilTask,
   cilUser,
@@ -100,7 +101,7 @@ const AppHeaderDropdown = () => {
         </CDropdownItem> */}
         <CDropdownDivider />
         <CDropdownItem onClick={handleLogout}>
-          <CIcon icon={cilLockLocked} className="me-2" />
+          <CIcon icon={cilAccountLogout} className="me-2" />
           Log Out
         </CDropdownItem>
       </CDropdownMenu>
