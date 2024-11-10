@@ -23,7 +23,7 @@ import {
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db, auth } from './../../../backend/firebase';
 import { useNavigate } from 'react-router-dom';
-import avatar6 from 'src/assets/images/avatars/6.jpg';
+import avatar6 from 'src/assets/images/avatars/4.jpg';
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -128,7 +128,7 @@ const Profile = () => {
                       {/* <CAvatar src={avatar6} size="xxl" /> */}
                       <CAvatar src={avatar6} style={{ width: '100px', height: '100px' }} />
                       <h3 className="mt-3">
-                        {researcherData.firstName} {researcherData.lastName}
+                        Dr. {researcherData.firstName} {researcherData.lastName}
                       </h3>
                       <p className="text-muted">{researcherData.position}</p>
                     </CCol>

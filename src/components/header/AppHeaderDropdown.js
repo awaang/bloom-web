@@ -23,7 +23,7 @@ import {
 } from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 
-import avatar6 from './../../assets/images/avatars/6.jpg';
+import avatar6 from './../../assets/images/avatars/4.jpg';
 
 import { signOut } from '@firebase/auth';
 import { useNavigate } from 'react-router-dom';
