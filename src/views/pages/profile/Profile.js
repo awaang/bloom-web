@@ -1,5 +1,3 @@
-// Profile.js
-
 import React, { useState, useEffect } from 'react';
 import {
   CButton,
@@ -11,10 +9,12 @@ import {
   CFormInput,
   CFormLabel,
   CRow,
+  CAvatar,
 } from '@coreui/react';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db, auth } from './../../../backend/firebase'; // Adjust the import path as needed
 import { useNavigate } from 'react-router-dom';
+import avatar1 from 'src/assets/images/avatars/6.jpg';
 
 const Profile = () => {
   const [researcherData, setResearcherData] = useState({
@@ -92,6 +92,25 @@ const Profile = () => {
           </CCardHeader>
           <CCardBody>
             <CForm onSubmit={handleSubmit}>
+              {/* Profile Picture */}
+              <CRow className="mb-3">
+                <CFormLabel htmlFor="profilePicture" className="col-sm-2 col-form-label">
+                  Profile Picture
+                </CFormLabel>
+                <CCol sm={10}>
+                  <div className="mb-3">
+                    <CAvatar src={avatar1} size="lg" />
+                  </div>
+                  <CFormInput
+                    type="file"
+                    id="profilePicture"
+                    name="profilePicture"
+                    accept="image/*"
+                    onChange={(e) => console.log('File selected:', e.target.files[0])}
+                  />
+                </CCol>
+              </CRow>
+
               {/* First Name */}
               <CRow className="mb-3">
                 <CFormLabel htmlFor="firstName" className="col-sm-2 col-form-label">
