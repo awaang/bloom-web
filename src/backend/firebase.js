@@ -4,13 +4,13 @@ import { initializeApp } from '@firebase/app';
 import { getAuth } from '@firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAHBGaiDLhUj2VUNG-6_279qakU5JUV5tY",
-  authDomain: "bloom-4317b.firebaseapp.com",
-  projectId: "bloom-4317b",
-  storageBucket: "bloom-4317b.firebasestorage.app",
-  messagingSenderId: "164159650573",
-  appId: "1:164159650573:web:574b373177b6afc260ce44",
-  measurementId: "G-96M7PD38B1"
+  apiKey: "AIzaSyCjklmcSFHCBjjSeovV5tUxBbGC6b4I8Hc",
+  authDomain: "bloom-92818.firebaseapp.com",
+  projectId: "bloom-92818",
+  storageBucket: "bloom-92818.firebasestorage.app",
+  messagingSenderId: "749341409637",
+  appId: "1:749341409637:web:ba0c5b171600d43e83e18c",
+  measurementId: "G-FRMV8EGYD6"
 };
 
 const app = initializeApp(firebaseConfig);

@@ -58,6 +58,7 @@ const routes = [
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
   { path: '/projects/all', name: 'My Projects', element: Projects },
   { path: '/projects/create', name: 'Create Project', element: Create },
+  { path: '/projects/:id', name: 'Project Details', element: Projects },
   { path: '/theme', name: 'Theme', element: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', element: Colors },
   { path: '/theme/typography', name: 'Typography', element: Typography },
