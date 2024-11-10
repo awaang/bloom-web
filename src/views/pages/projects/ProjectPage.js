@@ -31,8 +31,8 @@ const ProjectPage = () => {
   // Mock project data - replace with actual data fetching
   const projectData = {
     id: 1,
-    title: "Athletes' Cardiovascular Health Study",
-    description: "Research study analyzing cardiovascular health metrics across different age groups",
+    title: "Impact of Exercise on Mental Health",
+    description: "A study examining the correlation between regular physical activity and mental well-being in adults aged 25-40.",
     participantCount: 150,
     metrics: {
       aggregateStats: [
