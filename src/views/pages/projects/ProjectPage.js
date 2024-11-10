@@ -50,7 +50,7 @@ const ProjectPage = () => {
       <CCardBody>
         <CCardTitle>{project.title}</CCardTitle>
         <CCardText>{project.fullDescription}</CCardText>
-        <Link to="/projects">
+        <Link to="/projects/all">
           <CButton color="secondary">Back to Projects</CButton>
         </Link>
       </CCardBody>

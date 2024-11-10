@@ -17,34 +17,3 @@ const DefaultLayout = () => {
 }
 
 export default DefaultLayout
-
-
-
-// import React from 'react';
-// import { Outlet } from 'react-router-dom';
-// import { signOut } from '@firebase/auth';
-
-// const DefaultLayout = ({ auth, user }) => {
-//   const handleLogout = async () => {
-//     try {
-//       await signOut(auth);
-//       // The onAuthStateChanged listener in App.js will update the user state
-//     } catch (error) {
-//       console.error('Logout error:', error.message);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <header>
-//         <h1>Dashboard</h1>
-//         <button onClick={handleLogout}>Logout</button>
-//       </header>
-//       <main>
-//         <Outlet />
-//       </main>
-//     </div>
-//   );
-// };
-
-// export default DefaultLayout;

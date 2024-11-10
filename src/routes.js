@@ -4,6 +4,7 @@ const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'))
 const Projects = React.lazy(() => import('./views/pages/projects/Projects'))
+const ProjectPage = React.lazy(() => import('./views/pages/projects/ProjectPage'))
 const Create = React.lazy(() => import('./views/pages/projects/CreateProject'))
 
 // Base
@@ -58,7 +59,7 @@ const routes = [
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
   { path: '/projects/all', name: 'My Projects', element: Projects },
   { path: '/projects/create', name: 'Create Project', element: Create },
-  { path: '/projects/:id', name: 'Project Details', element: Projects },
+  { path: '/projects/:id', name: 'Project Details', element: ProjectPage },
   { path: '/theme', name: 'Theme', element: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', element: Colors },
   { path: '/theme/typography', name: 'Typography', element: Typography },
