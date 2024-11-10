@@ -1,6 +1,6 @@
 // CreateProject.js
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import {
   CButton,
   CCard,
@@ -13,11 +13,12 @@ import {
   CFormTextarea,
   CRow,
   CFormSelect,
-} from '@coreui/react'
+} from '@coreui/react';
 
-import { collection, addDoc } from 'firebase/firestore'
-
-import { db } from './../../../backend/firebase';
+import { collection, addDoc } from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore';
+import { db, auth } from './../../../backend/firebase'; // Adjust the import path as needed
+import { useNavigate } from 'react-router-dom';
 
 const CreateProject = () => {
   const [projectData, setProjectData] = useState({
@@ -28,24 +29,69 @@ const CreateProject = () => {
     endDate: '',
     rewardAmount: '',
     studyType: '',
-    researcherName: '',
-    researcherEmail: '',
-  })
+  });
+
+  const [researcherInfo, setResearcherInfo] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchResearcherInfo = async () => {
+      const user = auth.currentUser;
+      if (user) {
+        const userId = user.uid;
+        try {
+          const docRef = doc(db, 'researchers', userId);
+          const docSnap = await getDoc(docRef);
+
+          if (docSnap.exists()) {
+            setResearcherInfo(docSnap.data());
+          } else {
+            console.log('No such researcher document!');
+          }
+        } catch (error) {
+          console.error('Error fetching researcher info:', error);
+        }
+      } else {
+        // If user is not logged in, redirect to login page
+        navigate('/login');
+      }
+    };
+
+    fetchResearcherInfo();
+  }, [navigate]);
 
   const handleChange = (e) => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
     setProjectData({
       ...projectData,
       [name]: value,
-    })
-  }
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
+    if (!researcherInfo) {
+      alert('Researcher information not loaded. Please try again.');
+      return;
+    }
+
+    const completeProjectData = {
+      ...projectData,
+      researcher: {
+        firstName: researcherInfo.firstName,
+        lastName: researcherInfo.lastName,
+        email: researcherInfo.email,
+        institution: researcherInfo.institution,
+        position: researcherInfo.position,
+        researchArea: researcherInfo.researchArea,
+      },
+      researcherId: auth.currentUser.uid,
+    };
+
     try {
       // Add a new document with a generated ID
-      const docRef = await addDoc(collection(db, 'projects'), projectData);
+      const docRef = await addDoc(collection(db, 'projects'), completeProjectData);
       console.log('Document written with ID: ', docRef.id);
       // Optionally reset the form or redirect the user
       setProjectData({
@@ -56,13 +102,20 @@ const CreateProject = () => {
         endDate: '',
         rewardAmount: '',
         studyType: '',
-        researcherName: '',
-        researcherEmail: '',
       });
+      alert('Project created successfully!');
+      // Redirect to the project list or detail page if needed
+      navigate('/projects/all');
     } catch (e) {
       console.error('Error adding document: ', e);
+      alert('Failed to create project. Please try again.');
     }
   };
+
+  // If researcherInfo is not loaded yet, show a loading indicator
+  if (!researcherInfo) {
+    return <div>Loading researcher information...</div>;
+  }
 
   return (
     <CRow className="justify-content-center">
@@ -174,34 +227,6 @@ const CreateProject = () => {
                 />
               </div>
 
-              {/* Researcher Name */}
-              <div className="mb-3">
-                <CFormLabel htmlFor="researcherName">Researcher Name</CFormLabel>
-                <CFormInput
-                  type="text"
-                  id="researcherName"
-                  name="researcherName"
-                  value={projectData.researcherName}
-                  onChange={handleChange}
-                  placeholder="Enter your name"
-                  required
-                />
-              </div>
-
-              {/* Researcher Email */}
-              <div className="mb-3">
-                <CFormLabel htmlFor="researcherEmail">Researcher Email</CFormLabel>
-                <CFormInput
-                  type="email"
-                  id="researcherEmail"
-                  name="researcherEmail"
-                  value={projectData.researcherEmail}
-                  onChange={handleChange}
-                  placeholder="Enter your email"
-                  required
-                />
-              </div>
-
               {/* Submit Button */}
               <div className="d-grid gap-2">
                 <CButton color="primary" type="submit">
@@ -213,7 +238,7 @@ const CreateProject = () => {
         </CCard>
       </CCol>
     </CRow>
-  )
-}
+  );
+};
 
-export default CreateProject
+export default CreateProject;
