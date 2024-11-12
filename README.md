@@ -1,5 +1,7 @@
 # Bloom
 
+![Dashboard](https://media.discordapp.net/attachments/912585727945089034/1305685492813271131/Screenshot_2024-11-11_at_4.07.54_PM.png?ex=6733eddf&is=67329c5f&hm=a9cd537f6be0f1c2a8327ba11ca397cdd70e23d718c42c2bba784b3ecb48a651&=&format=webp&quality=lossless&width=2074&height=1170)
+
 ## Inspiration
 In recent decades, sports science research has transformed the landscape for both amateur and elite athletes. However, there are several issues concerning sports research, four of which we decided to address:
 - **Anonymity**: Athletes often worry that their sensitive performance and health data might be exposed and linked to their identities.
