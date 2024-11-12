@@ -1,66 +1,45 @@
-# CoreUI Free React Admin Template [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?text=CoreUI%20-%20Free%React%204%20Admin%20Template%20&url=https://coreui.io&hashtags=bootstrap,admin,template,dashboard,panel,free,angular,react,vue)
+# Bloom
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-[![@coreui coreui](https://img.shields.io/badge/@coreui%20-coreui-lightgrey.svg?style=flat-square)](https://github.com/coreui/coreui)
-[![npm package][npm-coreui-badge]][npm-coreui]
-[![NPM downloads][npm-coreui-download]][npm-coreui]
-[![@coreui react](https://img.shields.io/badge/@coreui%20-react-lightgrey.svg?style=flat-square)](https://github.com/coreui/react)
-[![npm package][npm-coreui-react-badge]][npm-coreui-react]
-[![NPM downloads][npm-coreui-react-download]][npm-coreui-react]  
+## Inspiration
+In recent decades, sports science research has transformed the landscape for both amateur and elite athletes. However, there are several issues concerning sports research, four of which we decided to address:
+- **Anonymity**: Athletes often worry that their sensitive performance and health data might be exposed and linked to their identities.
+- **Data Collection Limitations**: Many studies lack a sufficiently large and diverse dataset.
+- **Short-Term Focus**: Long-term studies prove challenging, as maintaining repeated contact with the same athletes risks compromising anonymity. These long-term projects are particularly vital for studying injury recovery, where tracking progress over time is essential for meaningful insights.
+- **Homogenous Data**: There is a significant underrepresentation of minority groups, especially in sports research, which limits the inclusivity and breadth of current findings. 
+We aimed to solve these four issues by creating an application to streamline communication between athletes and researchers in a secure, anonymous, incentivized way.
 
-[npm-coreui]: https://www.npmjs.com/package/@coreui/coreui
-[npm-coreui-badge]: https://img.shields.io/npm/v/@coreui/coreui.png?style=flat-square
-[npm-coreui-download]: https://img.shields.io/npm/dm/@coreui/coreui.svg?style=flat-square
-[npm-coreui-react]: https://www.npmjs.com/package/@coreui/react
-[npm-coreui-react-badge]: https://img.shields.io/npm/v/@coreui/react.png?style=flat-square
-[npm-coreui-react-download]: https://img.shields.io/npm/dm/@coreui/react.svg?style=flat-square
-[npm]: https://www.npmjs.com/package/@coreui/react
+## What it does
+At its core, Bloom is a way for athletes to share their athletic and health data anonymously with sports science researchers, coaches, or anyone else interested in pushing the envelope in sports. Bloom has two components:
+- **Web App**: Researchers create accounts and then post descriptions of research projects they're working on. Each time they create a project, they pay a certain amount of money in SOL (Solana's currency) which is used to compensate athletes for sharing their data.
+- **iOS App**: Athletes create accounts and maintain profiles locally storing their health data. We pull health data from Apple Health, which has biological and biometric data, as well as data obtained from wearables such as Apple watches or FitBits. The athletes are able to see all the research projects funded by researchers and can select which ones to contribute their data to. They are compensated via secure and anonymous transactions using Solana and Anyone Protocol.
 
-[![Bootstrap Admin Template](https://assets.coreui.io/products/coreui-free-bootstrap-admin-template-light-dark.webp)](https://coreui.io/product/free-react-admin-template/)
+## How we built it
+- **Web App**: authentication with Firebase, Firestore database, ReactJS, Anyone, Solana, Firebase SDK
+- **iOS App**: SwiftUI, AnyoneKit
 
-CoreUI is meant to be the UX game changer. Pure & transparent code is devoid of redundant components, so the app is light enough to offer ultimate user experience. This means mobile devices also, where the navigation is just as easy and intuitive as on a desktop or laptop. The CoreUI Layout API lets you customize your project for almost any device – be it Mobile, Web or WebApp – CoreUI covers them all!
+## Why it works
+Bloom solves the four problems outlined above by streamlining access and making long-term research studies easier. In particular:
+- **Anonymity**: Use of the Anyone Network for transmission of sensitive financial and health data ensures anonymity so that users feel comfortable contributing to sports research.
+- **Data Collection Limitations**: The iOS app is extremely easy to use, enabling participation in research from a much wider audience. Monetary incentives, managed securely through the Solana blockchain, also encourage widespread participation.
+- **Short-Term Focus**: Athletes on the Bloom app can easily send health data to the same researchers over long periods without worrying about risking their privacy.
+- **Homogenous Data**: The issue of homogenous data, much like the data collection challenge, is addressed through the Bloom app's user-friendly interface and the monetary incentives it offers, which encourage broad participation across diverse groups.
 
-## Table of Contents
+## Challenges we ran into
+We ran into two main challenges:
+1. We've never developed iOS applications in Swift before. This meant we spent a long time understanding Swift and everything built into Xcode. Eventually, we were able to get the iOS app UI working.
+2. We could not get the Anyone dependencies to load properly on the iOS side of things. We worked with several members of the Anyone Protocol team and eventually discovered a bug that integrates Anyone with iOS. This was the biggest pitfall for us because we ended up having to scrap that part of the project. In theory, it should work after fixing the integration bugs.
 
-* [Versions](#versions)
-* [CoreUI PRO](#coreui-pro)
-* [CoreUI PRO React Admin Templates](#coreui-pro-react-admin-templates)
-* [Quick Start](#quick-start)
-* [Installation](#installation)
-* [Basic usage](#basic-usage)
-* [What's included](#whats-included)
-* [Documentation](#documentation)
-* [Versioning](#versioning)
-* [Creators](#creators)
-* [Community](#community)
-* [Support CoreUI Development](#support-coreui-development)
-* [Copyright and License](#copyright-and-license)
+## Accomplishments that we're proud of
+- databases for authenticating users
+- ability to create new research projects and complete a transaction using the Solana blockchain
+- storing anonymized health data
 
-## Versions
+## What we learned
+We learned a lot about Swift, decentralization in general, and the specifics of the Anyone client.
 
-* [CoreUI Free Bootstrap Admin Template](https://github.com/coreui/coreui-free-bootstrap-admin-template)
-* [CoreUI Free Angular Admin Template](https://github.com/coreui/coreui-free-angular-admin-template)
-* [CoreUI Free React.js Admin Template (Vite)](https://github.com/coreui/coreui-free-react-admin-template)
-* [CoreUI Free React.js Admin Template (Create React App)](https://github.com/coreui/coreui-free-react-admin-template-cra)
-* [CoreUI Free Vue.js Admin Template](https://github.com/coreui/coreui-free-vue-admin-template)
-
-## CoreUI PRO
-
-* 💪  [CoreUI PRO Angular Admin Template](https://coreui.io/product/angular-dashboard-template/)
-* 💪  [CoreUI PRO Bootstrap Admin Template](https://coreui.io/product/bootstrap-dashboard-template/)
-* 💪  [CoreUI PRO Next.js Admin Template](https://coreui.io/product/next-js-dashboard-template/)
-* 💪  [CoreUI PRO React Admin Template](https://coreui.io/product/react-dashboard-template/)
-* 💪  [CoreUI PRO Vue Admin Template](https://coreui.io/product/vue-dashboard-template/)
-
-## CoreUI PRO React Admin Templates
-
-| Default Theme | Light Theme |
-| --- | --- |
-| [![CoreUI PRO React Admin Template](https://coreui.io/images/templates/coreui_pro_default_light_dark.webp)](https://coreui.io/product/react-dashboard-template/?theme=default) | [![CoreUI PRO React Admin Template](https://coreui.io/images/templates/coreui_pro_light_light_dark.webp)](https://coreui.io/product/react-dashboard-template/?theme=light)|
-
-| Modern Theme | Bright Theme |
-| --- | --- |
-| [![CoreUI PRO React Admin Template](https://coreui.io/images/templates/coreui_pro_default_v3_light_dark.webp)](https://coreui.io/product/react-dashboard-template/?theme=modern) | [![CoreUI PRO React Admin Template](https://coreui.io/images/templates/coreui_pro_light_v3_light_dark.webp)](https://coreui.io/product/react-dashboard-template/?theme=bright)|
+## What's next for Bloom
+- Bloom's potential extends beyond sports science. It could revolutionize medical, social, and economic research methodologies, allowing for effortless, anonymous, and incentive-driven data collection.
+- As Bloom grows, it will foster international collaboration. Researchers on opposite ends of the globe will be able to easily collaborate on a project and have access to the same data.
 
 ## Quick Start
 
@@ -113,8 +92,6 @@ $ yarn build
 
 ## What's included
 
-Within the download you'll find the following directories and files, logically grouping common assets and providing both compiled and minified variations. You'll see something like this:
-
 ```
 coreui-free-react-admin-template
 ├── public/          # static files
@@ -139,44 +116,6 @@ coreui-free-react-admin-template
 ├── ...
 └── vite.config.mjs  # vite config
 ```
-
-## Documentation
-
-The documentation for the CoreUI Admin Template is hosted at our website [CoreUI for React](https://coreui.io/react/docs/templates/installation/)
-
-## Versioning
-
-For transparency into our release cycle and in striving to maintain backward compatibility, CoreUI Free Admin Template is maintained under [the Semantic Versioning guidelines](http://semver.org/).
-
-See [the Releases section of our project](https://github.com/coreui/coreui-free-react-admin-template/releases) for changelogs for each release version.
-
-## Creators
-
-**Łukasz Holeczek**
-
-* <https://twitter.com/lukaszholeczek>
-* <https://github.com/mrholek>
-
-**Andrzej Kopański**
-
-* <https://github.com/xidedix>
-
-**CoreUI Team**
-
-* <https://twitter.com/core_ui>
-* <https://github.com/coreui>
-* <https://github.com/orgs/coreui/people>
-
-## Community
-
-Get updates on CoreUI's development and chat with the project maintainers and community members.
-
-- Follow [@core_ui on Twitter](https://twitter.com/core_ui).
-- Read and subscribe to [CoreUI Blog](https://coreui.ui/blog/).
-
-## Support CoreUI Development
-
-CoreUI is an MIT-licensed open source project and is completely free to use. However, the amount of effort needed to maintain and develop new features for the project is not sustainable without proper financial backing. You can support development by buying the [CoreUI PRO](https://coreui.io/pricing/?framework=react&src=github-coreui-free-react-admin-template) or by becoming a sponsor via [Open Collective](https://opencollective.com/coreui/).
 
 ## Copyright and License
 
